@@ -5,7 +5,6 @@ require "devise-neo4j/version"
 Gem::Specification.new do |s|
   s.name        = "devise-neo4j"
   s.version     = Devise::Neo4j::VERSION
-  s.platform    = Gem::Platform::JAVA
   
   s.authors     = ["Ben Jackson", "Bobby Calderwood"]
   s.email       = ["ben@lissomsolutions.com"]
