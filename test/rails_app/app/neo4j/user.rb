@@ -15,7 +15,7 @@ class User
   
   ## Database authenticatable
   property :email, :type => String, :null => false, :default => "", :index => :exact
-  property :encrypted_password, :type =>  NilClass
+  property :encrypted_password, :type =>  String
   
   ## Rememberable
   property :remember_created_at, :type => DateTime
@@ -31,7 +31,7 @@ class User
   property :last_sign_in_ip, :type => String
 
   ## Confirmable
-  property :confirmation_token, :type => NilClass, :index => :exact
+  property :confirmation_token, :type => String, :index => :exact
   property :confirmed_at, :type => DateTime
   property :confirmation_sent_at, :type => DateTime
   
@@ -47,8 +47,4 @@ class User
   include Shim
   include SharedUser
   
-end
-
-class UserWithValidation < User
-  validates_presence_of :username
 end
