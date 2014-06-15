@@ -40,35 +40,35 @@ module Neo4j
    property :email, :type => String, :null => false, :default => ""
    index :email
 
-   property :encrypted_password, :type =>  NilClass
+   property :encrypted_password
    
    ## If you include devise modules, uncomment the properties below.
     
    ## Rememberable
    property :remember_created_at, :type => DateTime
-   index :remember_token, :type => :exact
+   index :remember_token
 
    
    ## Recoverable
-   property :reset_password_token,   :type => NilClass
+   property :reset_password_token
    index :reset_password_token
    property :reset_password_sent_at, :type =>   DateTime
   
    ## Trackable
-   property :sign_in_count, :type => Fixnum, :default => 0
+   property :sign_in_count, :type => Integer, :default => 0
    property :current_sign_in_at, :type => DateTime
    property :last_sign_in_at, :type => DateTime
    property :current_sign_in_ip, :type =>  String
    property :last_sign_in_ip, :type => String
 
    ## Confirmable
-   # property :confirmation_token, :type => NilClass
+   # property :confirmation_token
    # index :confirmation_token
    # property :confirmed_at, :type => DateTime
    # property :confirmation_sent_at, :type => DateTime
 
    ## Lockable
-   #  property :failed_attempts, :type => Fixnum, :default => 0
+   #  property :failed_attempts, :type => Integer, :default => 0
    # property :locked_at, :type => DateTime
    #  property :unlock_token, :type => String,
    # index :unlock_token

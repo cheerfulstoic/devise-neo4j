@@ -54,14 +54,25 @@ You can see a very simple app that demonstrates Neo4j and devise here:
   rake neo4j:install[community-2.1.2] # check which one is the latest
   rake neo4j:start
 
-  rails g scaffold User username:string email:string
   rails g neo4j:devise User
-  add to your config/routes.rb: root to: "users#index"; devise_for :users
+  # add to your config/routes.rb:
+    devise_for :users
+    root :to => "secrets#show"
 
-  add to app/user_controller.rb: before_action :authenticate_user!
+  # generate a controller for the protected content
+  rails g controller secrets show
+
+  # in app/controllers/sercrets_controller.rb delete line get 'secrets/show' and add:
+    before_filter :authenticate_user!
+
+  # in app/views/secrets/show.html.erb: add:
+    <p>Shhhh... this page is only visible to logged-in users!</p>
+
+    <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+
   rails s
-  go to http://localhost:3000/users/sign_up
 
+  # go to http://localhost:3000/users/sign_up
 ==
 
 == Note on Patches/Pull Requests
